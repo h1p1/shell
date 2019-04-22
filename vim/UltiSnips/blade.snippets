@@ -1,0 +1,23 @@
+snippet fore "Foreach"
+@foreach(${1} as ${2})
+	${3}
+@endforeach
+endsnippet
+
+snippet if "IF Conditional"
+@if(${1})
+	${2}
+@endif
+endsnippet
+
+snippet switch "Switch Conditional"
+@switch(${1})
+	@case(${2})
+		${3}
+	@break
+
+	@default
+		${4}
+	@break
+@endswitch
+endsnippet
