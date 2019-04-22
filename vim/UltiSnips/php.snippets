@@ -1,11 +1,4 @@
-snippet pub "Add public access"
-public ${1}
-endsnippet
-
-snippet pro "Add protected access"
-protected ${1}
-endsnippet
-
+# Class
 snippet class "Create class"
 class ${1}
 {
@@ -20,6 +13,16 @@ class ${1} extends ${2}
 }
 endsnippet
 
+# Attributes
+snippet pub "Add public access"
+public ${1}
+endsnippet
+
+snippet pro "Add protected access"
+protected ${1}
+endsnippet
+
+# Method
 snippet pubf "Create public method"
 public function ${1}(${2}) 
 {
@@ -34,6 +37,14 @@ protected function ${1}(${2})
 }
 endsnippet
 
+snippet prif "Create protected method"
+private function ${1}(${2}) 
+{
+	${3}
+}
+endsnippet
+
+# Built In Functions
 snippet if "Create if condition"
 if (${1}) {
 
@@ -43,5 +54,18 @@ endsnippet
 snippet fore "Create foreach looping"
 foreach (${1} as ${2}) {
 
+}
+endsnippet
+
+# Laravel 
+snippet fac "Import Laravel Facades"
+use Illuminate\Support\Facades\\${1};
+endsnippet
+
+snippet setUp "Setup phpunit test"
+public function setUp() :void
+{
+	parent::setUp();
+	${1}
 }
 endsnippet
