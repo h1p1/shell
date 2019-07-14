@@ -34,7 +34,7 @@ chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 
 # installing additional tools
-apt-get install -y unzip
+apt-get install -y unzip npm
 
 
 # additional configuration

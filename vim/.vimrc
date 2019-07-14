@@ -2,8 +2,8 @@ syntax enable
 
 set nocompatible
 set noswapfile
+set nowrap
 set number
-set cursorline
 set incsearch                  
 set ignorecase
 set expandtab
@@ -19,15 +19,24 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'morhetz/gruvbox'
+Plugin 'whatyouhide/vim-gotham'
 Plugin 'mattn/emmet-vim'
 Plugin 'SirVer/ultisnips'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'w0rp/ale'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
 Plugin 'StanAngeloff/php.vim'
+Plugin 'vim-scripts/AutoComplPop'
+Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'posva/vim-vue'
+Plugin 'jwalton512/vim-blade'
 
 call vundle#end()            
 filetype plugin indent on
@@ -43,6 +52,10 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|vendor\|node_modules'
   \ }
+nnoremap <C-i> :CtrlPTag<CR>
+
+" tagbar configuration
+nnoremap <C-m> :TagbarToggle<CR>
 
 " ale configuration 
 let g:ale_lint_on_text_changed = 0
@@ -56,6 +69,27 @@ let g:ale_linters = {
 " easy align configuration
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-map <C-n> :NERDTreeToggle<CR>
 
-source ~/colorscheme.vim
+" nerdtree configuration
+map <C-n> :NERDTreeToggle<CR>
+nnoremap <C-t> :tabe .<CR>
+nnoremap <C-[> :tabprevious<CR>
+nnoremap <C-]> :tabnext<CR>
+
+" omnisearch configuration
+set completeopt=longest,menuone
+
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme='gruvbox'
+
+" source ~/.colorscheme.vim
+colorscheme gruvbox
+let g:gruvbox_contrast_dark= "soft"
+set bg=dark
+
+" colorscheme gotham
+" let g:gotham_airline_emphasised_insert = 0
+
+autocmd FileType vue syntax sync fromstart
+autocmd FileType php syntax sync fromstart
